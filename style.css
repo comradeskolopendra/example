@@ -79,24 +79,24 @@ body {
 
 .tab {
     position: relative;
+    transition: border-color 0s ease-out, width 0.5s ease-out;
 }
 
-.navbar__lower .active::after {
+.tab::after {
+    width: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 1px;
+    transition: border-color 0s ease-out, width 0.5s ease-out;
+    position: absolute;
+    bottom: 0;
+    content: "";
+}
+
+.navbar__lower [data-active="1"]::after {
     width: 100%!important;
     transition: border-color 0s ease-out, width 0.5s ease-out;
     border-color: #2B5DA8;
     color: #2B5DA8;
-    border-radius: 1px;
-    -webkit-transition: border-color 0s ease-out, width 0.5s ease-out;
-    -moz-transition: border-color 0s ease-out, width 0.5s ease-out;
-    -ms-transition: border-color 0s ease-out, width 0.5s ease-out;
-    -o-transition: border-color 0s ease-out, width 0.5s ease-out;
-}
-
-.inactive::after {
-    width: 0%!important;
-    transition: border-color 0s ease-out, width 0.5s ease-out;
-    border-color: #2B5DA8;
     border-radius: 1px;
     -webkit-transition: border-color 0s ease-out, width 0.5s ease-out;
     -moz-transition: border-color 0s ease-out, width 0.5s ease-out;
@@ -114,11 +114,6 @@ body {
     border-bottom-color: #2B5DA8;
     width: 0;
     height: 100%;
-}
-
-.tab::after {
-    content: "";
-    position: absolute;
 }
 
 .navbar__lower a {
@@ -267,7 +262,7 @@ header {
 }
 
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
     body {
         margin: 0;
         font-family: 'Inter', sans-serif;
@@ -450,4 +445,11 @@ header {
         content: "";
         position: absolute;
     }
+} */
+
+.tab:hover::after{
+    width: 100%;
+    border-bottom: 2px solid #2B5DA8;
+    border-radius: 1px;
+    color: #2B5DA8;
 }
